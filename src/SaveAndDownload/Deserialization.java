@@ -1,0 +1,25 @@
+package SaveAndDownload;
+
+import AccessLevel.EmployeeControl;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
+// Класс десериализации объекта
+public class Deserialization {
+
+    // 2. Метод десериализации объекта Pet
+    public static Object makeDeserialization() {
+        try (FileInputStream fis = new FileInputStream("Company.dat");
+             ObjectInputStream ois = new ObjectInputStream(fis)) {
+            return ois.readObject();
+        } catch (IOException ex) {
+            System.out.println("Exception: " + ex);
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Deserialization exception: " + ex);
+        }
+        return null;
+    }
+}
