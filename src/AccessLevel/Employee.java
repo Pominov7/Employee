@@ -64,7 +64,7 @@ public class Employee implements Serializable {
     // 2. Метод для сортировки сотрудников по id
     public static final Comparator<Employee> COMPARE_BY_ID = Comparator.comparingInt(Employee::getId);
 
-    // 3. Метод для сортировки сотрудников по зарплате по возрастанию
+    // 3. Метод для сортировки сотрудников по зарплате по убыванию
     public static final Comparator<Employee> COMPARE_BY_SALARY = (salaryMin, salaryMax) -> salaryMax.getSalary() - salaryMin.getSalary();
 
     // 4. Метод для сортировки сотрудников по дате приема на работу
