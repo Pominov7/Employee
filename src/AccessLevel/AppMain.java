@@ -1,5 +1,7 @@
 package AccessLevel;
+
 import java.util.Scanner;
+
 import Menu.Menu;
 import Menu.MenuControl;
 import LoginTool.LoginTool;
@@ -9,6 +11,7 @@ import SaveAndDownload.Serialization;
 // Класс - "Главное приложение"
 class AppMain implements Menu {
     public static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
 
         // 1. Создаём управление меню
@@ -24,7 +27,7 @@ class AppMain implements Menu {
             // завершение программы (0 = программа завешается без ошибок)
             System.exit(0);
         }
-        // если роль совпадает с "user"то ему предоставляется доступ к определенным пунктам меню
+        // если роль совпадает с "user" - то ему предоставляется доступ к определенным пунктам меню
         if (currentUser.role.equals("user")) {
             User user = null; // создаём пользователя
             Menu.printEnterLoadProgram(); // выбор загрузки программы
@@ -32,9 +35,12 @@ class AppMain implements Menu {
                 int choice = sc.nextInt();
                 sc.nextLine();
                 switch (choice) {
-                    case 1 -> user = new User(); // если 1 то работаем с базой данных( из файла)
+                    case 1 -> user = new User(); // если 1 - то работаем с базой данных( из файла)
                     case 2 -> user = (User) Deserialization.makeDeserialization(); // если 2 , то десериализуем объект
-                    default -> System.out.println("Некорректный ввод!");
+                    default -> {
+                        System.out.println("Некорректный ввод.Перезапустите программу и попробуйте снова!");
+                        return;
+                    }
                 }
             }
             while (menu.choice != 7) {
@@ -61,7 +67,7 @@ class AppMain implements Menu {
                     user.showTopTenEmploymentDate();
                 }
             }
-            // если роль совпадает с "admin"то ему предоставляется доступ к определенным пунктам меню
+            // если роль совпадает с "admin" - то ему предоставляется доступ к определенным пунктам меню
         } else if (currentUser.role.equals("admin")) {
             Admin admin = null;
             Menu.printEnterLoadProgram();
@@ -71,7 +77,10 @@ class AppMain implements Menu {
                 switch (choice) {
                     case 1 -> admin = new Admin();
                     case 2 -> admin = (Admin) Deserialization.makeDeserialization();
-                    default -> System.out.println("Некорректный ввод!");
+                    default -> {
+                        System.out.println("Некорректный ввод.Перезапустите программу и попробуйте снова!");
+                        return;
+                    }
                 }
             }
             while (menu.choice != 9) {
@@ -98,7 +107,11 @@ class AppMain implements Menu {
                     admin.showTopTenEmploymentDate();
                 } else if (menu.choice == 7) {
                     assert admin != null;
-                    admin.addWorker();
+                    try {
+                        admin.addWorker();
+                    } catch (NullPointerException ex) {
+                        System.out.println(ex.getMessage());
+                    }
                 } else if (menu.choice == 8) {
                     assert admin != null;
                     admin.showFullInfo();
@@ -118,7 +131,10 @@ class AppMain implements Menu {
                 switch (choice) {
                     case 1 -> developer = new Developer();
                     case 2 -> developer = (Developer) Deserialization.makeDeserialization();
-                    default -> System.out.println("Некорректный ввод!");
+                    default -> {
+                        System.out.println("Некорректный ввод.Перезапустите программу и попробуйте снова!");
+                        return;
+                    }
                 }
             }
             while (menu.choice != 11) {
