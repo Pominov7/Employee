@@ -11,10 +11,10 @@ import java.io.ObjectInputStream;
 public class Deserialization {
 
     // 2. Метод десериализации объекта Pet
-    public static Object makeDeserialization() {
+    public static EmployeeControl makeDeserialization() {
         try (FileInputStream fis = new FileInputStream("Company.dat");
              ObjectInputStream ois = new ObjectInputStream(fis)) {
-            return ois.readObject();
+            return (EmployeeControl) ois.readObject();
         } catch (IOException ex) {
             System.out.println("Exception: " + ex);
         } catch (ClassNotFoundException ex) {

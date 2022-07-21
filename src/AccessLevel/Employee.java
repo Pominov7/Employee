@@ -10,7 +10,7 @@ public class Employee implements Serializable {
     // Поля класса сотрудник
     protected String fullName;          // ФИО сотрудника
     protected String sex;               // пол
-    protected String telephoneNumber;   // номер телефона
+    protected String telephoneNumber;   // site телефона
     protected String jobTitle;          // должность
     protected String department;        // отдел
     protected String chief;             // начальник

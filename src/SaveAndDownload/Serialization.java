@@ -1,5 +1,7 @@
 package SaveAndDownload;
 
+import AccessLevel.EmployeeControl;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -8,7 +10,7 @@ import java.io.ObjectOutputStream;
 public class Serialization {
 
     // 1. Метод сериализации объекта
-    public static void makeSerialization( Object obj) {
+    public static void makeSerialization( EmployeeControl obj) {
         try (FileOutputStream fos = new FileOutputStream("Company.dat");
              ObjectOutputStream oos = new ObjectOutputStream(fos)) {
             oos.writeObject(obj);

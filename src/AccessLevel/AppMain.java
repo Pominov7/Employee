@@ -1,6 +1,4 @@
 package AccessLevel;
-
-import java.io.Serializable;
 import java.util.Scanner;
 import Menu.Menu;
 import Menu.MenuControl;
