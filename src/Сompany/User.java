@@ -1,10 +1,10 @@
-package AccessLevel;
+package Сompany;
 
 import Menu.Menu;
 import java.io.Serial;
 import java.util.*;
 import java.util.stream.Collectors;
-import Menu.MenuControl;
+
 // Класс - Пользователь, наследуется от класса Управление доступом
 public class User extends EmployeeControl {
 

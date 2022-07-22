@@ -1,4 +1,4 @@
-package AccessLevel;
+package Сompany;
 
 import java.util.Scanner;
 
