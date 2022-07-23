@@ -33,7 +33,8 @@ public class Admin extends User implements Menu {
         // возьмём у этого объекта id и прибавим к нему единицу, чтобы получился следующий по порядку id
 
         Menu.printEnterFullName(); // Введите ФИО:
-        String fullName = scanner.nextLine().replace(";", ""); // заменяем ; на пробел
+        String fullName = scanner.nextLine().replace(";", ""); // заменяем ";" на пробел,
+        // для корректного чтения из файла
         Menu.printEnterBirthDayDate(); // Введите дату рождения:
         String birthDayDate = scanner.nextLine().replace(";", "");
         Menu.printEnterSex(); // Введите пол:
@@ -88,7 +89,8 @@ public class Admin extends User implements Menu {
 
     // 3. Метод записи в файл информации о сотрудниках
     public void recordToFile() {
-        int counter = 0; // счётчик
+        int counter = 0; // счётчик нужен для того, чтобы для самой последней строки не ставить перенос
+        // (строки \n), а для всех остальных ставить перенос (строки \n)
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         try (FileWriter writer = new FileWriter("src/workerData.txt", true)) {
             //Запись информации о сотрудниках
