@@ -15,13 +15,13 @@ public class Employee implements Serializable {
     protected String department;        // отдел
     protected String chief;             // начальник
     protected int id;                   // идентификатор сорудника
-    protected int salary;               // зарплата
+    protected double salary;               // зарплата
     protected Date birthDayDate;        // дата рождения
     protected Date employmentDate;      // дата приема на работу
 
     // Конструктор с параметрами
     public Employee(String fullName, Date birthDayDate, String sex, String telephoneNumber,
-                    String jobTitle, String department, Date employmentDate, int salary,
+                    String jobTitle, String department, Date employmentDate, double salary,
                     String chief, int id) {
         this.fullName = fullName;
         this.birthDayDate = birthDayDate;
@@ -40,7 +40,7 @@ public class Employee implements Serializable {
         return id;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return salary;
     }
 
@@ -65,7 +65,7 @@ public class Employee implements Serializable {
     public static final Comparator<Employee> COMPARE_BY_ID = Comparator.comparingInt(Employee::getId);
 
     // 3. Метод для сортировки сотрудников по зарплате по убыванию
-    public static final Comparator<Employee> COMPARE_BY_SALARY = (salaryMin, salaryMax) -> salaryMax.getSalary() - salaryMin.getSalary();
+    public static final Comparator<Employee> COMPARE_BY_SALARY = (salaryMin, salaryMax) -> (int) (salaryMax.getSalary() - salaryMin.getSalary());
 
     // 4. Метод для сортировки сотрудников по дате приема на работу
     public static final Comparator<Employee> COMPARE_BY_EMPLOYMENT_DATE = Comparator.comparing(Employee::getEmploymentDate);
