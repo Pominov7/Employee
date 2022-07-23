@@ -15,7 +15,7 @@ public class Admin extends User implements Menu {
 
     // Поля класса
     @Serial
-    private transient static final long serialVersionUID = 5436478208476617227L; // номер версии UID для класса
+    private transient static final long serialVersionUID = 5436478208476617227L; //версия сериализованных данных
 
     // Конструктор без параметров
     public Admin() {
@@ -24,13 +24,13 @@ public class Admin extends User implements Menu {
     }
 
     // Методы
-    // 1. Добавить работника
+    // 1. Метод "добавить работника"
     public boolean addWorker() {
 
         super.sortByID(); // сортируем список сотрудников по id
-        int id = super.getWorkerData().get(super.getWorkerData().size() - 1).id + 1; //«получить объект из
+        int id = super.getWorkerData().get(super.getWorkerData().size() - 1).id + 1; //получить объект из
         // списка по индексу, размер списка минус единица (так как отсчёт с нуля),
-        // возьмём у этого объекта I’d и прибавим к нему единицу», чтобы получился следующий по порядку id
+        // возьмём у этого объекта id и прибавим к нему единицу, чтобы получился следующий по порядку id
 
         Menu.printEnterFullName(); // Введите ФИО:
         String fullName = scanner.nextLine().replace(";", ""); // заменяем ; на пробел
@@ -47,9 +47,9 @@ public class Admin extends User implements Menu {
         Menu.printEnterEmploymentDate(); //Введите дату приема на работу
         String employmentDate = scanner.nextLine().replace(";", "");
         Menu.printEnterSalary(); //Введите зарплату
-        int salary;
+        double salary;
         try {
-            salary = scanner.nextInt();
+            salary = scanner.nextDouble();
         } catch (Exception e) {
             System.out.println("Некорректно введена заработная плата!");
             salary = 0;
@@ -62,12 +62,12 @@ public class Admin extends User implements Menu {
         super.getWorkerData().add(new Employee(fullName, tryParseDate(birthDayDate), sex,
                 telephoneNumber, jobTitle, department, tryParseDate(employmentDate), salary, chief, id));
         super.showFullInfo(); // показываем информацию о сотрудниках
-        rebuildFile(); // записываем в файл
+        recordToFile(); // записываем в файл
         return true;
 
     }
 
-    // 2. Удалить работника
+    // 2. Метод "Удалить работника"
     public boolean removeWorker(List<Employee> result) {
         if (result != null) {
             if (result.size() == 0) {
@@ -82,12 +82,12 @@ public class Admin extends User implements Menu {
         }
 
         super.showFullInfo(); // показываем информацию о сотрудниках
-        rebuildFile(); //записываем в файл
+        recordToFile(); //записываем в файл
         return true;
     }
 
     // 3. Метод записи в файл информации о сотрудниках
-    public void rebuildFile() {
+    public void recordToFile() {
         int counter = 0; // счётчик
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         try (FileWriter writer = new FileWriter("src/workerData.txt", true)) {

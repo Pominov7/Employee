@@ -9,7 +9,7 @@ import SaveAndDownload.Deserialization;
 import SaveAndDownload.Serialization;
 
 // Класс - "Главное приложение"
-class AppMain implements Menu {
+class AppMain {
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {

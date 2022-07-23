@@ -1,6 +1,6 @@
 package SaveAndDownload;
 
-import AccessLevel.EmployeeControl;
+import Сompany.EmployeeControl;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

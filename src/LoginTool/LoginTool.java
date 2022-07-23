@@ -38,7 +38,18 @@ public class LoginTool implements Menu {
         this.password = password;
         this.role = role;
     }
+    // Геттеры
+    public String getLogin() {
+        return login;
+    }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public String getRole() {
+        return role;
+    }
     // Метод "Вход в систему"
     public LoginTool signIn() {
         Scanner scanner = new Scanner(System.in);

@@ -2,6 +2,8 @@ package Company;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import Сompany.Employee;
+import Сompany.EmployeeControl;
 
 import java.util.ArrayList;
 

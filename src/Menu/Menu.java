@@ -1,6 +1,5 @@
 package Menu;
 
-
 // Интерфейс - Меню
 public interface Menu {
 

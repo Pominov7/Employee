@@ -9,10 +9,11 @@ import java.util.Date;
 
 // Абстрактный класс - Управление сотрудниками
 public abstract class EmployeeControl implements Serializable {
+
     // Поля класса
     protected ArrayList<Employee> workerData; // список сотрудников
     @Serial
-    private transient static final long serialVersionUID = 7919473111096604449L;
+    private transient static final long serialVersionUID = 7919473111096604449L; //версия сериализованных данных
 
     // Конструктор без параметров
     public EmployeeControl() {
@@ -21,7 +22,7 @@ public abstract class EmployeeControl implements Serializable {
             BufferedReader buffer = new BufferedReader(reader);
             String line = buffer.readLine();            // считывание построчно
             while (line != null) {                     // если строка существует
-                String[] data = line.split(";"); // разделяем строку на подстроки, используя разделитель ;
+                String[] data = line.split(";"); //массив строк; разделяем строку на подстроки, используя разделитель ;
                 // добавляем сотрудника прочитанного из файла в список
                 workerData.add(new Employee(
                         data[0],
@@ -32,7 +33,7 @@ public abstract class EmployeeControl implements Serializable {
                         data[5],
                         tryParseDate(data[6]),
                         tryParse(data[7]) == null ? 0 : tryParse(data[7]), // если строка не введена, то возвращаем 0
-                        // а если, введена, то парсим строку и преобразовываем в int
+                        // если, введена, то парсим строку и преобразовываем в int
                         data[8],
                         Integer.parseInt(data[9])
                 ));
@@ -60,7 +61,7 @@ public abstract class EmployeeControl implements Serializable {
     }
 
     // 2. Метод для проверки ввода даты
-    protected static @Nullable
+    public static @Nullable                                               //@Nullable(объект может быть = 0)
     Date tryParseDate(String date) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy"); // задаём нужный формат для вывода даты
         try {

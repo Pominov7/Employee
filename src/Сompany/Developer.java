@@ -1,13 +1,18 @@
 package Сompany;
+
 import Menu.Menu;
+
 import java.io.Serial;
 import java.util.List;
+
 import Menu.MenuControl;
+
 // Класс - Разработчик, наследуется от класса "Администратор", и реализует интерфейс "Меню"
 public class Developer extends Admin implements Menu {
 
     @Serial
-    private transient static final long serialVersionUID =-2926902666805314734L; // номер версии UID для класса
+    private transient static final long serialVersionUID = -2926902666805314734L; // //версия сериализованных данных
+
     // Конструктор без параметров
     public Developer() {
         super();
@@ -23,7 +28,7 @@ public class Developer extends Admin implements Menu {
             }
             showOrderBy(result); // показываем сотрудников до модификации
             MenuControl menu = new MenuControl();
-            Menu.printEnterModifyColumn(); // модифицировать колонку
+            Menu.printEnterModifyColumn(); // изменить поле
             menu.printColumnsMenu();       // печатаем колонки меню
             if (menu.columnsChoice == 1) {
                 System.out.println("Невозможно редактировать идентификатор даже для разработчика!");
@@ -85,7 +90,7 @@ public class Developer extends Admin implements Menu {
         }
 
         showOrderBy(result); // показываем сотрудников после модификации
-        rebuildFile();       // записываем файл
+        recordToFile();       // записываем файл
         return true;
     }
 }

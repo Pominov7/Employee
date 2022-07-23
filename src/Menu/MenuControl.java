@@ -21,11 +21,11 @@ public class MenuControl implements Menu {
     // 1. Метод печати меню в соответствии с введенной ролью
     public void printMenu(String role) {
         if (role.equals("user")) {                 // если введен "user"
-            Menu.printUserMenu();                 // отрисовываем меню для пользователя
-        } else if (role.equals("admin")) {       // если введен "admin"
-            Menu.printAdminMenu();              // отрисовываем меню для администратора
-        } else if (role.equals("developer")) { // если введен "developer"
-            Menu.printDeveloperMenu();        // отрисовываем меню для разработчика
+            Menu.printUserMenu();                  // отрисовываем меню для пользователя
+        } else if (role.equals("admin")) {         // если введен "admin"
+            Menu.printAdminMenu();                 // отрисовываем меню для администратора
+        } else if (role.equals("developer")) {     // если введен "developer"
+            Menu.printDeveloperMenu();             // отрисовываем меню для разработчика
         } else {
             System.out.println("У пользователя нет роли!");
         }

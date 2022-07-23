@@ -4,18 +4,19 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.Date;
+
 //Класс - Сотрудник
 public class Employee implements Serializable {
 
-    // Поля класса сотрудник
+    // Поля класса
     protected String fullName;          // ФИО сотрудника
     protected String sex;               // пол
-    protected String telephoneNumber;   // site телефона
+    protected String telephoneNumber;   // номер телефона
     protected String jobTitle;          // должность
     protected String department;        // отдел
     protected String chief;             // начальник
-    protected int id;                   // идентификатор сорудника
-    protected double salary;               // зарплата
+    protected int id;                   // идентификатор сорудника (табельный номер)
+    protected double salary;            // зарплата
     protected Date birthDayDate;        // дата рождения
     protected Date employmentDate;      // дата приема на работу
 
@@ -61,12 +62,12 @@ public class Employee implements Serializable {
         );
     }
 
-    // 2. Метод для сортировки сотрудников по id
+    // 2. Компаратор для сортировки сотрудников по id (от меньшего к большему)
     public static final Comparator<Employee> COMPARE_BY_ID = Comparator.comparingInt(Employee::getId);
 
-    // 3. Метод для сортировки сотрудников по зарплате по убыванию
+    // 3. Компаратор для сортировки сотрудников по зарплате по убыванию
     public static final Comparator<Employee> COMPARE_BY_SALARY = (salaryMin, salaryMax) -> (int) (salaryMax.getSalary() - salaryMin.getSalary());
 
-    // 4. Метод для сортировки сотрудников по дате приема на работу
+    // 4. Компаратор для сортировки сотрудников по дате приема на работу (от старых к новым)
     public static final Comparator<Employee> COMPARE_BY_EMPLOYMENT_DATE = Comparator.comparing(Employee::getEmploymentDate);
 }
