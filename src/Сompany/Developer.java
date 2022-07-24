@@ -11,7 +11,7 @@ import Menu.MenuControl;
 public class Developer extends Admin implements Menu {
 
     @Serial
-    private transient static final long serialVersionUID = -2926902666805314734L; // //версия сериализованных данных
+    private transient static final long serialVersionUID = 1L; // //версия сериализованных данных
 
     // Конструктор без параметров
     public Developer() {
@@ -70,7 +70,7 @@ public class Developer extends Admin implements Menu {
                     worker.employmentDate = tryParseDate(employmentDate); // проверка корректности ввода даты
             } else if (menu.columnsChoice == 9) {
                 Menu.printEnterSalary(); // редактируем зарплату работника
-                int salary = scanner.nextInt();
+                double salary = scanner.nextDouble();
                 scanner.nextLine();
                 for (Employee worker : result)
                     worker.salary = salary;

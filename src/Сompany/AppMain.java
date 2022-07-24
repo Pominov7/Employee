@@ -121,7 +121,7 @@ class AppMain {
                 }
             }
 
-            // если роль совпадает с "developer"то ему предоставляется доступ к определенным пунктам меню
+            // если роль совпадает с "developer" - то ему предоставляется доступ к определенным пунктам меню
         } else if (currentUser.role.equals("developer")) {
             Developer developer = null;
             Menu.printEnterLoadProgram();
@@ -152,7 +152,7 @@ class AppMain {
                     developer.showDepartmentInfo();
                 } else if (menu.choice == 4) {
                     assert developer != null;
-                    developer.showDepartmentInfo();
+                    developer.showSalaryInfo();
                 } else if (menu.choice == 5) {
                     assert developer != null;
                     developer.showTopTenSalary();

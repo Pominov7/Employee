@@ -53,11 +53,11 @@ public interface Menu {
     }
 
     static void printEnterOrderByColumn() {
-        System.out.println("Выберите поле для изменения : ");
+        System.out.println("Выберите поле: ");
     }
 
     static void printEnterModifyColumn() {
-        System.out.println("Изменить поле: ");
+        System.out.println("Изменить: ");
     }
 
     static void printEnterLoadProgram() {

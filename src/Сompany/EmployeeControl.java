@@ -13,7 +13,7 @@ public abstract class EmployeeControl implements Serializable {
     // Поля класса
     protected ArrayList<Employee> workerData; // список сотрудников
     @Serial
-    private transient static final long serialVersionUID = 7919473111096604449L; //версия сериализованных данных
+    private transient static final long serialVersionUID = 1L; //версия сериализованных данных
 
     // Конструктор без параметров
     public EmployeeControl() {

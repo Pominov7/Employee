@@ -15,7 +15,7 @@ public class Admin extends User implements Menu {
 
     // Поля класса
     @Serial
-    private transient static final long serialVersionUID = 5436478208476617227L; //версия сериализованных данных
+    private transient static final long serialVersionUID = 1L; //версия сериализованных данных
 
     // Конструктор без параметров
     public Admin() {

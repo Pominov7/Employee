@@ -11,7 +11,7 @@ public class User extends EmployeeControl {
 
     // Поля класса
     @Serial
-    private transient static final long serialVersionUID = -4838735422331560443L;   // //версия сериализованных данных
+    private transient static final long serialVersionUID = 1L;   // //версия сериализованных данных
     protected static transient Scanner scanner = new Scanner(System.in); // сканер (поле transient, не сериализуется)
 
     // Конструктор без параметров
@@ -175,7 +175,7 @@ public class User extends EmployeeControl {
                     .collect(Collectors.toList());
         } else if (choice == 9) {
             Menu.printEnterSalary(); // выбор "9" по зарплате сотрудника
-            int salary = scanner.nextInt();
+            double salary = scanner.nextDouble();
             result = super.getWorkerData().stream().filter(a -> Objects.equals(a.salary, salary))
                     .collect(Collectors.toList());
         } else if (choice == 10) {
