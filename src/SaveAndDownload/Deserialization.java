@@ -9,7 +9,7 @@ import java.io.ObjectInputStream;
 // Класс десериализации объекта
 public class Deserialization {
 
-    // 2. Метод десериализации объекта Pet
+    // 2. Метод десериализации объекта
     public static EmployeeControl makeDeserialization() {
         try (FileInputStream fis = new FileInputStream("Company.dat");
              ObjectInputStream ois = new ObjectInputStream(fis)) {
