@@ -4,7 +4,9 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -36,8 +38,8 @@ public class Admin extends User implements Menu {
         // для корректного чтения из файла
         Menu.printEnterBirthDayDate(); // Введите дату рождения:
         String birthDayDate = scanner.nextLine().replace(";", "");
-        if (tryParseDate(birthDayDate) == null) {
-            Menu.printEnterBirthDayDate(); // Введите дату рождения:
+        while (tryParseDate(birthDayDate) == null) {
+            System.out.println("Неверный формат даты, попробуйте еще раз:");
             birthDayDate = scanner.nextLine().replace(";", "");
         }
         Menu.printEnterSex(); // Введите пол:
@@ -50,14 +52,14 @@ public class Admin extends User implements Menu {
         String department = scanner.nextLine().replace(";", "");
         Menu.printEnterEmploymentDate(); //Введите дату приема на работу
         String employmentDate = scanner.nextLine().replace(";", "");
-        if (tryParseDate(employmentDate) == null) {
-            Menu.printEnterEmploymentDate(); // Введите дату приема на работу
+        while (tryParseDate(employmentDate) == null) {
+            System.out.println("Неверный формат даты, попробуйте еще раз:");
             employmentDate = scanner.nextLine().replace(";", "");
         }
         Menu.printEnterSalary(); //Введите зарплату
-        double salary;
+        int salary;
         try {
-            salary = scanner.nextDouble();
+            salary = scanner.nextInt();
         } catch (Exception e) {
             System.out.println("Некорректно введена заработная плата!");
             salary = 0;
@@ -129,5 +131,4 @@ public class Admin extends User implements Menu {
             System.out.println("Ошибка доступа к файлу с данными о работниках");
         }
     }
-
 }

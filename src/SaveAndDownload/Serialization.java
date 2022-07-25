@@ -10,7 +10,7 @@ import java.io.ObjectOutputStream;
 public class Serialization {
 
     // 1. Метод сериализации объекта
-    public static void makeSerialization( EmployeeControl obj) {
+    public static void makeSerialization(EmployeeControl obj) {
         try (FileOutputStream fos = new FileOutputStream("Company.dat");
              ObjectOutputStream oos = new ObjectOutputStream(fos)) {
             oos.writeObject(obj);

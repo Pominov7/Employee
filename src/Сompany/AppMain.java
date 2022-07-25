@@ -164,7 +164,11 @@ class AppMain {
                         developer.showTopTenEmploymentDate();
                     } else if (menu.choice == 7) {
                         assert developer != null;
-                        developer.addWorker();
+                        try {
+                            developer.addWorker();
+                        } catch (NullPointerException ex) {
+                            System.out.println(ex.getMessage());
+                        }
                     } else if (menu.choice == 8) {
                         assert developer != null;
                         developer.showFullInfo();
@@ -176,7 +180,11 @@ class AppMain {
                         developer.showFullInfo();
                         Menu.printEnterOrderByColumn();
                         menu.printColumnsMenu();
-                        developer.modifyWorkerDate(developer.orderBy(menu.columnsChoice));
+                        try {
+                            developer.modifyWorkerDate(developer.orderBy(menu.columnsChoice));
+                        } catch (NullPointerException ex) {
+                            System.out.println(ex.getMessage());
+                        }
                     } else if (menu.choice == 10) {
                         Serialization.makeSerialization(developer);
                     }

@@ -64,9 +64,10 @@ public abstract class EmployeeControl implements Serializable {
     public static @Nullable                                               //@Nullable(объект может быть = 0)
     Date tryParseDate(String date) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy"); // задаём нужный формат для вывода даты
+        sdf.setLenient(false);
         try {
             return sdf.parse(date); // парсим строку и возвращаем дату в виде объекта класса Date
-        } catch (Exception e) {    // если строка не может быть преобразована в тип int
+        } catch (Exception e) {    // если строка не может быть преобразована
             return null;
         }
     }

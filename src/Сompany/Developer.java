@@ -41,6 +41,10 @@ public class Developer extends Admin implements Menu {
             } else if (menu.columnsChoice == 3) {
                 Menu.printEnterBirthDayDate(); // редактируем дату рождения работника
                 String birthDayDate = scanner.nextLine();
+                while (tryParseDate(birthDayDate) == null) {
+                    System.out.println("Неверный формат даты, попробуйте еще раз:");
+                    birthDayDate = scanner.nextLine().replace(";", "");
+                }
                 for (Employee worker : result)
                     worker.birthDayDate = tryParseDate(birthDayDate); // проверка корректности ввода даты
             } else if (menu.columnsChoice == 4) {

@@ -55,7 +55,7 @@ public class User extends EmployeeControl {
 
     // 3. Метод "показать среднюю зарплату по организации и по отделам"
     protected boolean showSalaryInfo() {
-        int averageSalary = 0; // средняя зарплата
+        double averageSalary = 0; // средняя зарплата
         int count = 0; // счётчик (считает сотрудников)
         for (Employee worker : super.getWorkerData()) {
             averageSalary += worker.salary;
