@@ -31,7 +31,7 @@ public class Developer extends Admin implements Menu {
             Menu.printEnterModifyColumn(); // изменить поле
             menu.printColumnsMenu();       // печатаем колонки меню
             if (menu.columnsChoice == 1) {
-                System.out.println("Невозможно редактировать идентификатор даже для разработчика!");
+                System.out.println("Невозможно редактировать идентификатор, так как он уникальный!");
                 return false;
             } else if (menu.columnsChoice == 2) {
                 Menu.printEnterFullName();  // редактируем ФИО работника
@@ -64,10 +64,8 @@ public class Developer extends Admin implements Menu {
                 for (Employee worker : result)
                     worker.department = department;
             } else if (menu.columnsChoice == 8) {
-                Menu.printEnterEmploymentDate(); // редактируем дату трудоустройства работника
-                String employmentDate = scanner.nextLine();
-                for (Employee worker : result)
-                    worker.employmentDate = tryParseDate(employmentDate); // проверка корректности ввода даты
+                System.out.println("Невозможно редактировать дату трудоустройства даже для разработчика!");
+                return false;
             } else if (menu.columnsChoice == 9) {
                 Menu.printEnterSalary(); // редактируем зарплату работника
                 double salary = scanner.nextDouble();
