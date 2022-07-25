@@ -31,12 +31,15 @@ public class Admin extends User implements Menu {
         int id = super.getWorkerData().get(super.getWorkerData().size() - 1).id + 1; //получить объект из
         // списка по индексу, размер списка минус единица (так как отсчёт с нуля),
         // возьмём у этого объекта id и прибавим к нему единицу, чтобы получился следующий по порядку id
-
         Menu.printEnterFullName(); // Введите ФИО:
         String fullName = scanner.nextLine().replace(";", ""); // заменяем ";" на пробел,
         // для корректного чтения из файла
         Menu.printEnterBirthDayDate(); // Введите дату рождения:
         String birthDayDate = scanner.nextLine().replace(";", "");
+        if (tryParseDate(birthDayDate) == null) {
+            Menu.printEnterBirthDayDate(); // Введите дату рождения:
+            birthDayDate = scanner.nextLine().replace(";", "");
+        }
         Menu.printEnterSex(); // Введите пол:
         String sex = scanner.nextLine().replace(";", "");
         Menu.printEnterTelephoneNumber();
@@ -47,6 +50,10 @@ public class Admin extends User implements Menu {
         String department = scanner.nextLine().replace(";", "");
         Menu.printEnterEmploymentDate(); //Введите дату приема на работу
         String employmentDate = scanner.nextLine().replace(";", "");
+        if (tryParseDate(employmentDate) == null) {
+            Menu.printEnterEmploymentDate(); // Введите дату приема на работу
+            employmentDate = scanner.nextLine().replace(";", "");
+        }
         Menu.printEnterSalary(); //Введите зарплату
         double salary;
         try {
@@ -65,7 +72,6 @@ public class Admin extends User implements Menu {
         super.showFullInfo(); // показываем информацию о сотрудниках
         recordToFile(); // записываем в файл
         return true;
-
     }
 
     // 2. Метод "Удалить работника"
