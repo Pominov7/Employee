@@ -11,7 +11,7 @@ public class LoginTool implements Menu {
     private ArrayList<LoginTool> userData; // список содержащий логин и пароль
     private String login;                  // логин
     private String password;               // пароль
-    public String role = "default";     // роль
+    public String role = "default";        // роль
 
     // Конструкторы
     // 1. Конструктор без параметров
@@ -23,7 +23,7 @@ public class LoginTool implements Menu {
             String line = buffer.readLine();
             while (line != null) {
                 String[] data = line.split(";"); // разделяем строку на подстроки, используя разделитель ;
-                // добавляем роль,логин,пароль прочитанные из файла в список
+                // добавляем роль, логин, пароль прочитанные из файла в список
                 userData.add(new LoginTool(data[0], data[1], data[2]));
                 line = buffer.readLine(); // прочитаем каждую строку
             }
@@ -50,7 +50,8 @@ public class LoginTool implements Menu {
     public String getRole() {
         return role;
     }
-    // Метод "Вход в систему"
+
+    // 3. Метод "Вход в систему"
     public LoginTool signIn() {
         Scanner scanner = new Scanner(System.in);
         Menu.printEnterLogin();              // "Введите логин"

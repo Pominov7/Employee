@@ -4,11 +4,8 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
-import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
 
 import Menu.Menu;
 
@@ -22,7 +19,6 @@ public class Admin extends User implements Menu {
     // Конструктор без параметров
     public Admin() {
         super();    //текущий экземпляр родительского класса
-        scanner = new Scanner(System.in); // сканер
     }
 
     // Методы

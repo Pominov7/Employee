@@ -17,7 +17,6 @@ public class User extends EmployeeControl {
     // Конструктор без параметров
     public User() {
         super();   //текущий экземпляр родительского класса
-        scanner = new Scanner(System.in);  // сканер
     }
 
     // Методы
