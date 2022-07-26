@@ -52,10 +52,10 @@ public abstract class EmployeeControl implements Serializable {
 
     // Методы
     // 1. Метод проверки ввода числа
-    protected static @Nullable Integer tryParse(String text) {
+    protected static @Nullable Double tryParse(String text) {
         try {
-            return Integer.parseInt(text); // преобразуем строку в целое число и возвращаем int
-        } catch (NumberFormatException e) { // если строка не может быть преобразована в тип int
+            return Double.parseDouble(text); // преобразуем строку в целое число и возвращаем double
+        } catch (NumberFormatException e) { // если строка не может быть преобразована
             return null;
         }
     }

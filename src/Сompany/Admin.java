@@ -53,7 +53,7 @@ public class Admin extends User implements Menu {
             employmentDate = scanner.nextLine().replace(";", "");
         }
         Menu.printEnterSalary(); //Введите зарплату
-        int salary;
+        double salary;
         try {
             salary = scanner.nextInt();
         } catch (Exception e) {
