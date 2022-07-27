@@ -11,7 +11,7 @@ public class User extends EmployeeControl {
 
     // Поля класса
     @Serial
-    private transient static final long serialVersionUID = 1L;   // //версия сериализованных данных
+    private transient static final long serialVersionUID = 1L;            //версия сериализованных данных
     protected static transient Scanner scanner = new Scanner(System.in); // сканер (поле transient, не сериализуется)
 
     // Конструктор без параметров

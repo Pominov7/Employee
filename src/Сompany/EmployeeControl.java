@@ -33,7 +33,7 @@ public abstract class EmployeeControl implements Serializable {
                         data[5],
                         tryParseDate(data[6]),
                         tryParse(data[7]) == null ? 0 : tryParse(data[7]), // если строка не введена, то возвращаем 0
-                        // если, введена, то парсим строку и преобразовываем в int
+                        // если, введена, то парсим строку и преобразовываем в double
                         data[8],
                         Integer.parseInt(data[9])
                 ));

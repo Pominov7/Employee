@@ -1,11 +1,13 @@
 package LoginTool;
+
 import Menu.Menu;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// Класс - "Вход в систему" реализует интерфейс "Меню"
-public class LoginTool implements Menu {
+// Класс - "Вход в систему"
+public class LoginTool {
 
     // Поля класса
     private ArrayList<LoginTool> userData; // список содержащий логин и пароль
@@ -38,6 +40,7 @@ public class LoginTool implements Menu {
         this.password = password;
         this.role = role;
     }
+
     // Геттеры
     public String getLogin() {
         return login;

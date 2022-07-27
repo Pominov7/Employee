@@ -2,8 +2,8 @@ package Menu;
 
 import java.util.Scanner;
 
-// Класс - Управление меню, реализует интерфейс "Меню"
-public class MenuControl implements Menu {
+// Класс - Управление меню
+public class MenuControl {
 
     // Поля класса
     public Scanner scanner;

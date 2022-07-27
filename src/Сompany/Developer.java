@@ -7,8 +7,8 @@ import java.util.List;
 
 import Menu.MenuControl;
 
-// Класс - Разработчик, наследуется от класса "Администратор", и реализует интерфейс "Меню"
-public class Developer extends Admin implements Menu {
+// Класс - Разработчик, наследуется от класса "Администратор"
+public class Developer extends Admin {
 
     @Serial
     private transient static final long serialVersionUID = 1L; // //версия сериализованных данных

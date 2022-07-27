@@ -9,8 +9,8 @@ import java.util.List;
 
 import Menu.Menu;
 
-// Класс - Администратор, наследуется от класса "Пользователь", и реализует интерфейс "Меню"
-public class Admin extends User implements Menu {
+// Класс - Администратор, наследуется от класса "Пользователь"
+public class Admin extends User {
 
     // Поля класса
     @Serial
