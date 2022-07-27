@@ -61,7 +61,7 @@ public class User extends EmployeeControl {
             count++;
         }
         System.out.printf("%-40s %-40s%n", "Отдел:", "Средняя зарплата:");
-        System.out.printf("%-40s %-40s%n", "Организация:", averageSalary / count);
+        System.out.printf("%-40s %1.2f%n", "Организация:", averageSalary / count);
         // группировка сотрудников по отделу
         Map<String, List<Employee>> departmentGroup = super.getWorkerData().stream()
                 .collect(Collectors.groupingBy(a -> a.department));
@@ -73,7 +73,7 @@ public class User extends EmployeeControl {
                 averageSalary += worker.salary;
                 count++;
             }
-            System.out.printf("%-40s %-40s%n", entry.getKey(), averageSalary / count);
+            System.out.printf("%-40s %1.2f%n", entry.getKey(), averageSalary / count);
         }
         return true;
     }
